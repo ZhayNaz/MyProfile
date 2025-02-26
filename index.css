@@ -5,11 +5,13 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: flex;
+    /* display: flex;     -----ALIGNED LAHAT BASTA YON */
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden;  -----WALANG SCROLL   */ 
     user-select: none;
+    /* background: url("/images/J4o.gif") repeat center center fixed; */
+
 }
 
 img {
@@ -18,9 +20,10 @@ img {
 }
 
 .profile-container {
-    display: flex;
-    width: 80%;
-    height: 90%;
+    /* display: flex; */
+    align-self: center;
+    width: 50%;
+    height: 80%;
     background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
@@ -91,6 +94,7 @@ img {
     font-weight: bold;
     color: #99ffff;
     margin-bottom: 15px;
+    text-align: center;
     text-transform: uppercase;
     border-bottom: 2px solid #2c3e50;
     padding-bottom: 5px;
@@ -164,13 +168,188 @@ img {
     color: #fff;
 }
 
-/* footer{
-    text-align: center;
-    padding: 15px;
-    background-color: #1a1a1a;
-    border-top: 2px solid #00ffcc;
+.navbar {
+    position: fixed;
+    top: 0;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    background: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.navbar ul li a.active {
+    background: #00ffcc;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    margin: 20px;
+}
+
+section {
+    min-height: 100vh; 
+    display: flex;
+    align-items: top; 
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    background-color: #00ffcc;
+    color: #0d0d0d;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Loader Styles */
+.loader-container {
+    position: fixed;
+    top: 0;
     left: 0;
-} */
+    width: 100%;
+    height: 100vh;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+.loading-circle {
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(0, 255, 204, 0.2);
+    border-top: 8px solid #00ffcc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#loading-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #00ffcc;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* opacity: 0; */
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes neon-flicker {
+    0% { text-shadow: 2 2 5px #00ffcc, 2 2 10px #00ffcc; }
+    100% { text-shadow: 2 2 10px #00ffcc, 2 2 20px #00ffcc; }
+}
+
+#add-review-btn {
+    top: 20px;
+    right: 20px;
+    background: #00ffcc;
+    color: black;
+    border: 2px 2px solid #00ffcc;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.5);
+    transition: 0.3s;
+}
+
+#add-review-btn:hover {
+    background: #009977;
+    box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.8);
+}
+
+.reviews-header{
+    justify-content: space-between; align-items: center;
+
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: -35px; 
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 14px;
+    /* opacity: 0; */
+    transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#add-review-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #00ffcc;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+#add-review-btn:hover {
+    background-color: #008080;
+}

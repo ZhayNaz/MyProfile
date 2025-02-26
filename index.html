@@ -7,59 +7,121 @@
     <title>Profile Page</title>
 </head>
 <body>
-    <div class="profile-container">
-        <div>
-            <div  class="profile-img-container">
-                <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-                <span>
-                    <h2 class="name">Joseph Jeremy C. Garcia</h2>
-                    <p class="bio">Web Developer | System Developer <br>
-                        | Computer Engineering</p>
-                </span>
+    <div class="loader-container">
+        <div class="loading-circle"></div>
+        <h1 id="loading-text"></h1>
+    </div>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="#profile" class="nav-link active">Profile</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#info" class="nav-link">Info</a></li>
+            <li><a href="#work" class="nav-link">Work Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <section id="profile">
+        <div class="profile-container">
+            <div>
+                <div class="profile-img-container">
+                    <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+                    <span>
+                        <h2 class="name">Joseph Jeremy C. Garcia</h2>
+                        <p class="bio">Web Developer | System Developer <br> | Computer Engineering</p>
+                    </span>
+                </div>
+                <div class="profile-details">
+                    <p><strong>Age:</strong> 24</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Birthday:</strong> November 20, 2000</p>
+                    <p><strong>Nationality:</strong> Filipino</p>
+                    <p><strong>Address:</strong> Cavite, Philippines</p>
+                    <p><strong>Profession:</strong> Computer Engineer</p>
+                    <p><strong>Status:</strong> Single</p>
+                </div>
             </div>
-            <div class="profile-details">
-                <p><strong>Age:</strong> 24</p>
-                <p><strong>Gender:</strong> Male</p>
-                <p><strong>Birthday:</strong> November 20, 2000</p>
-                <p><strong>Nationality:</strong> Filipino</p>
-                <p><strong>Address:</strong> Cavite, Philippines</p>
-                <p><strong>Profession:</strong> Computer Engineer</p>
-                <p><strong>Status:</strong> Single</p>
-            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <footer class="social-links">
-                <a href="https://www.facebook.com/nekonekotep">Facebook</a>
-                <a href="https://www.linkedin.com/in/joseph-jeremy-garcia-engineering" target="_blank">LinkedIn</a>
-                <a href="https://github.com/ZhayNaz">GitHub</a>
-            </footer>    
         </div>
-        <div class="projects-container">
-            <h3>MY PROJECTS</h3>
+    </section>
+
+    <section id="projects">
+        <div class="profile-container">
+            <h3 class="title">MY PROJECTS</h3>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="web">Web Development</button>
+                <button class="filter-btn" data-category="python">Python</button>
+                <button class="filter-btn" data-category="iot">IoT</button>
+            </div>
+        
             <div class="projects-list">
-                <a href="https://zhaystation-zhaynaz.vercel.app" target="_blank">Portal Designing Vue.js</a>
-                <a href="https://tech-advantix.vercel.app" target="_blank">Tech-Advantix React.js</a>
-                <a href="#" target="_blank">Videos</a>
+                <a href="https://zhaystation-zhaynaz.vercel.app" class="project-item" data-category="web" target="_blank">Portal Designing Vue.js</a>
+                <a href="https://tech-advantix.vercel.app" class="project-item" data-category="web" target="_blank">Tech-Advantix React.js</a>
+                <a href="#" class="project-item" data-category="python" target="_blank">Python Data Processing</a>
+                <a href="#" class="project-item" data-category="iot" target="_blank">Smart Home Automation IoT</a>
             </div>
         </div>
-        <div class="education-container">
+        
+    </section>
+
+    <section id="info">
+        <div class="profile-container">
             <h2 class="title">INFO</h2>
             <div class="education-list">
-                <p class="items" style="justify-self: left;"><span>Contact:</span> 0945-150-5011</p>
-                <p class="items" style="justify-self: left;"><span>Email:</span> mrjosephgarcia466@gmail.com</p>
-            </div>
-            <h2 class="title">WORK EXPERIENCE</h2>
-            <div class="education-list">
-                <p style="justify-self: left;"><span>Web Developer:</span> HRD PTE Singapore</p>
-                <p style="justify-self: left;"><span>Freelance Developer:</span> Freelance</p>
-                <p style="justify-self: left;"><span>Store Crew:</span> Alfamart</p>
-            </div>
-            <h2 class="title"> EDUCATIONAL BACKGROUND</h2>
-            <div class="education-list">
-                <p style="justify-self: left;"><span>ELEMENTARY:</span> Diego Mojica Memorial School</p>
-                <p style="justify-self: left;"><span>SECONDARY:</span> Fiat Lux Academe</p>
-                <p style="justify-self: left;"><span>SENIOR HIGH:</span> Fiat Lux Academe</p>
-                <p style="justify-self: left;"><span>TERTIARY:</span> Samuel Christian College</p>
+                <p class="items"><span>Contact:</span> 0945-150-5011</p>
+                <p class="items"><span>Email:</span> mrjosephgarcia466@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nekonekotep">Facebook</a>
+                    <a href="https://www.linkedin.com/in/joseph-jeremy-garcia-engineering" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/ZhayNaz">GitHub</a>
+                </div>   
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="work">
+        <div class="profile-container">
+            <h2 class="title">WORK EXPERIENCE</h2>
+            <div class="education-list">
+                <p><span>Web Developer:</span> HRD PTE Singapore</p>
+                <p><span>Freelance Developer:</span> Freelance</p>
+                <p><span>Store Crew:</span> Alfamart</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="profile-container">
+            <h2 class="title"> EDUCATIONAL BACKGROUND</h2>
+            <div class="education-list">
+                <p><span>ELEMENTARY:</span> Diego Mojica Memorial School</p>
+                <p><span>SECONDARY:</span> Fiat Lux Academe</p>
+                <p><span>SENIOR HIGH:</span> Fiat Lux Academe</p>
+                <p><span>TERTIARY:</span> Samuel Christian College</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="profile-container">
+            <div class="reviews-header">
+                <h2 class="title">What People Say</h2>
+                <div class="tooltip-container">
+                    <button id="add-review-btn">+</button>
+                    <span class="tooltip-text">Add Your Review</span>
+                </div>
+            </div>
+            <div class="review-box">
+                <p id="review-text">Loading reviews...</p>
+                <h4 id="review-author">-</h4>
+            </div>
+        </div>
+    </section>
+    
+    
 </body>
+<script src="index.js"></script>
 </html>
