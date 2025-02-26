@@ -34,18 +34,34 @@
                     </span>
                 </div>
                 <div class="profile-details">
-                    <p><strong>Age:</strong> 24</p>
-                    <p><strong>Gender:</strong> Male</p>
-                    <p><strong>Birthday:</strong> November 20, 2000</p>
-                    <p><strong>Nationality:</strong> Filipino</p>
-                    <p><strong>Address:</strong> Cavite, Philippines</p>
-                    <p><strong>Profession:</strong> Computer Engineer</p>
-                    <p><strong>Status:</strong> Single</p>
+                    <div>
+                        <p><strong>Age:</strong> 24</p>
+                        <p><strong>Gender:</strong> Male</p>
+                        <p><strong>Birthday:</strong> November 20, 2000</p>
+                        <p><strong>Nationality:</strong> Filipino</p>
+                        <p><strong>Address:</strong> Cavite, Philippines</p>
+                        <p><strong>Profession:</strong> Computer Engineer</p>
+                        <p><strong>Status:</strong> Single</p>
+                    </div>
+                    <div id="loader-container">
+                        <blockquote id="motivational-quote">Loading quote...</blockquote>
+                        <p id="quote-author"></p>
+                    </div> 
+                    <button id="download-resume-btn">Download Resume</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="resume-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Select Resume Format</h2>
+            <button onclick="downloadResume('pdf')">Download as PDF</button>
+            <button onclick="downloadResume('docx')">Download as DOCX</button>
+        </div>
+    </div>
+    
     <section id="projects">
         <div class="profile-container">
             <h3 class="title">MY PROJECTS</h3>
@@ -114,14 +130,52 @@
                     <span class="tooltip-text">Add Your Review</span>
                 </div>
             </div>
+            
             <div class="review-box">
                 <p id="review-text">Loading reviews...</p>
                 <h4 id="review-author">-</h4>
             </div>
         </div>
     </section>
-    
-    
+
+    <script>
+   document.addEventListener("DOMContentLoaded", () => {
+        const reviews = [
+            { text: "This portfolio is amazing!", author: "John Doe" },
+            { text: "Very professional work!", author: "Jane Smith" },
+            { text: "Great developer, highly recommend!", author: "Michael Johnson" },
+            { text: "Impressive projects and clean UI!", author: "Sarah Lee" }
+        ];
+
+        const reviewText = document.getElementById("review-text");
+        const reviewAuthor = document.getElementById("review-author");
+        const addReviewBtn = document.getElementById("add-review-btn");
+
+        let currentIndex = 0;
+
+        function changeReview() {
+            reviewText.textContent = `"${reviews[currentIndex].text}"`;
+            reviewAuthor.textContent = `- ${reviews[currentIndex].author}`;
+            currentIndex = (currentIndex + 1) % reviews.length;
+        }
+
+        changeReview();
+        setInterval(changeReview, 4000);
+
+        addReviewBtn.addEventListener("click", () => {
+            const newReviewText = prompt("Enter your review:").trim();
+            const newReviewAuthor = prompt("Enter your name:").trim();
+
+            if (!newReviewText || !newReviewAuthor) {
+                alert("Error: Review and name cannot be empty!");
+                return;
+            }
+
+            reviews.push({ text: newReviewText, author: newReviewAuthor });
+            alert("Success: Your review has been added!");
+        });
+    });
+    </script>
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 </html>

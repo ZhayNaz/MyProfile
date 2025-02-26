@@ -59,8 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
             loadingText.textContent += name[index]; 
             index++;
             setTimeout(typeEffect, 150);
-            // console.log(loadingText);
-            
         } else {
             setTimeout(() => {
                 loaderContainer.classList.add("hidden"); 
@@ -72,36 +70,27 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, 500);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const reviews = [
-        { text: "This portfolio is amazing!", author: "John Doe" },
-        { text: "Very professional work!", author: "Jane Smith" },
-        { text: "Great developer, highly recommend!", author: "Michael Johnson" },
-        { text: "Impressive projects and clean UI!", author: "Sarah Lee" }
-    ];
+// document.addEventListener("DOMContentLoaded", () => {
+//     fetch("") 
+//         .then(response => response.json()) 
+//         .then(data => {
+//             document.getElementById("motivational-quote").textContent = `"${data.content}"`;
+//             document.getElementById("quote-author").textContent = `- ${data.author}`;
+//         })
+//         .catch(error => {
+//             document.getElementById("motivational-quote").textContent = "Failed to load quote.";
+//         });
+// });
 
-    const reviewText = document.getElementById("review-text");
-    const reviewAuthor = document.getElementById("review-author");
-    const addReviewBtn = document.getElementById("add-review-btn");
-
-    let currentIndex = 0;
-
-    function changeReview() {
-        reviewText.textContent = `"${reviews[currentIndex].text}"`;
-        reviewAuthor.textContent = `- ${reviews[currentIndex].author}`;
-        currentIndex = (currentIndex + 1) % reviews.length;
-    }
-
-    changeReview();
-    setInterval(changeReview, 4000);
-
-    addReviewBtn.addEventListener("click", () => {
-        const newReviewText = prompt("Enter your review:");
-        const newReviewAuthor = prompt("Enter your name:");
-
-        if (newReviewText && newReviewAuthor) {
-            reviews.push({ text: newReviewText, author: newReviewAuthor });
-            alert("Your review has been added!");
-        }
-    });
+document.getElementById("download-resume-btn").addEventListener("click", function () {
+    document.getElementById("resume-modal").style.display = "flex";
 });
+
+document.querySelector(".close-btn").addEventListener("click", function () {
+    document.getElementById("resume-modal").style.display = "none";
+});
+
+function downloadResume(format) {
+    const resumePath = format === 'pdf' ? 'resume.pdf' : 'resume.docx';
+    window.location.href = resumePath;
+}
